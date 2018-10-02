@@ -5,9 +5,14 @@ import (
 	"errors"
 	"io"
 	"math/rand"
+	"time"
 
 	"cloud.google.com/go/pubsub"
 )
+
+func init() {
+	rand.Seed(time.Now().UTC().UnixNano())
+}
 
 var _ = io.ReadWriteCloser(&Fubsub{})
 
